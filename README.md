@@ -23,10 +23,10 @@ List of features
 
 ## Contributors ✨
 
-## Contributors:family_man_girl_girl_girl:
+## Contributors: family_man_girl_girl_girl:
 
-<a href="https://github.com/theupweb/idea-lab/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=theupweb/idea-lab" />
+<a href="https://github.com/HishamYUM/Project/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=HishamYUM/Project" />
 </a>
 
 ## Contact
