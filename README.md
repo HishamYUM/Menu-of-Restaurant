@@ -30,4 +30,4 @@ List of features
 </a>
 
 ## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+Created by [@HishamYUM](https://www.github.com/HishamYUM) [@HishamYUM](https://www.github.com/HishamYUM) [@HishamYUM](https://www.github.com/HishamYUM) - feel free to contact me!
