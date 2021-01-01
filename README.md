@@ -26,7 +26,7 @@ List of features
 ## Contributors: :man: :woman: :woman: :woman:
 
 <a href="https://github.com/HishamYUM/Project/graphs/contributors">
-  <img src="https://avatars3.githubusercontent.com/u/37296813?s=400&u=e3fe4eab0e61874b6de80dc4e75e4d95ec0f1e22&v=4" />
+  <img src="https://avatars3.githubusercontent.com/u/37296813?s=400&u=e3fe4eab0e61874b6de80dc4e75e4d95ec0f1e22&v=4" width="200" height="200"/>
   <img src="https://avatars0.githubusercontent.com/u/74618487?s=400&v=4" />
   <img src="https://avatars0.githubusercontent.com/u/76823160?s=400&u=df4e40a3a31b7e5c4e65861b9055c32aa336a55e&v=4" />
   <img src ="https://avatars3.githubusercontent.com/u/72884014?s=400&v=4" />
