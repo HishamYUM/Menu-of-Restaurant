@@ -1,0 +1,5 @@
+Notre projet propose un menu du restaurant "TEAM C", permettant à l'utilisateur (client) de saisir ses choix de plats, desserts, boissons, faire une ou plusieurs commande et en 
+retourne la facture qui contient à la fois la commande munie des prix de chaque composant, le prix TTC (la somme à payer), la date et l'heure de la commande.
+Le fichier menu.h contient le menu proposé par le restaurant bien détaillé avec les prix.
+Les fonctions utilisées sont explicitées dans function.c et fuction.h.
+Le main.c contient le code commenté qui gère les commandes des clients.
