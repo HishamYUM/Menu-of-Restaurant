@@ -8,8 +8,8 @@
 int main()
 {
 
-    char order, confirm, OK, confirm2, command;
-    int nbCommande=1, nbCategorie, nbSubCateg, nbElement;
+    char order, confirm, OK, confirm2;
+    int nbCommande=1, nbCategorie, nbSubCateg, nbElement, command;
     char **choices = malloc(1* sizeof(*choices));
     double *prices = malloc(1*sizeof(double));
 start:
@@ -20,17 +20,22 @@ start:
     si oui il veut quitter, sinon la console est vidée et le program saute au menu*/
     if (order == 'Q')
     {
-        printf("Are you sure you want to quit?\nY.yes 		N.No\n");
+        printf("===============================\nAre you sure you want to quit?\nY.yes 		N.No\n");
         scanf(" %c", &confirm); // " %c" to avoid buffer broblems
         if (confirm == 'Y')
         {
-            printf("Thanks for visit us! Have a good day!\n");
+            printf("=========================\nThank for your visit! Have a good day!\n");
             exit(0);
         }
-        else
+        else if (confirm == 'N')
         {
             system("clear");// "clear" sous Linux et "cls" sous Windows
             goto menu; // the program jumb to label menu
+        }
+        else
+        {
+            system("clear");
+            goto start;
         }
     }
 
@@ -39,71 +44,115 @@ start:
 menu: //label
         printf("================== Select your choices ==================\n");
         showCategories(categories_);
-        printf("Enter nomber of categorie\n");
+        printf("=========================\nEnter nomber of categorie\n");
         scanf("%d", &nbCategorie);
         switch(nbCategorie)
         {
         case 1:
+
+categ1:
             showCoeffes(coeffe);
             scanf("%d", &nbElement);
+            if ( !(1<=nbElement && nbElement<=12))
+            {
+                printf("=========================\nEnter a valid option!\n====================\n");
+                goto categ1;
+            }
             addElements(choices, coeffe, nbElement, nbCommande);
             addPrices(prices,coeffeP, nbElement, nbCommande);
             break;
         case 2:
+
+categ2:
             showTeas(tea);
             scanf("%d", &nbElement);
+            if ( !(1<=nbElement && nbElement<=8))
+            {
+                printf("=========================\nEnter a valid option!\n====================\n");
+                goto categ2;
+            }
             addElements(choices, tea, nbElement, nbCommande);
             addPrices(prices,teaP, nbElement, nbCommande);
             break;
         case 3:
 menu2:
             showSubCategories(drinks_);
-
             scanf(" %d", &nbSubCateg);
             switch(nbSubCateg)
             {
             case 1:
+categ31:
                 showJuices(juice);
                 scanf("%d", &nbElement);
+                if ( !(1<=nbElement && nbElement<=12))
+                {
+                    printf("Enter a valid option!\n====================\n");
+                    goto categ31;
+                }
                 addElements(choices, juice, nbElement, nbCommande);
                 addPrices(prices,juiceP, nbElement, nbCommande);
                 break;
             case 2:
+categ32:
                 showOthers(other);
                 scanf("%d", &nbElement);
+                if ( !(1<=nbElement && nbElement<=5))
+                {
+                    printf("Enter a valid option!\n====================\n");
+                    goto categ32;
+                }
                 addElements(choices, other, nbElement, nbCommande);
                 addPrices(prices,otherP, nbElement, nbCommande);
                 break;
             default:
-                printf("Enter a valid option\n"); //si le client a saisi un nombre qui n'est pas dans le menu principal retourner ce message
+                printf("Enter a valid option\n===========================\n"); //si le client a saisi un nombre qui n'est pas dans le menu principal retourner ce message
                 goto menu2;
             }
             break;
         case 4:
+categ4:
             showDesserts(dessert);
             scanf("%d", &nbElement);
-            addElements(choices, other, nbElement, nbCommande);
+            if ( !(1<=nbElement && nbElement<=12))
+            {
+                printf("Enter a valid option!\n====================\n");
+                goto categ4;
+            }
+            addElements(choices, dessert, nbElement, nbCommande);
             addPrices(prices,dessertP, nbElement, nbCommande);
             break;
         case 5:
+categ5:
             showBurgers(burger);
             scanf("%d", &nbElement);
+            if ( !(1<=nbElement && nbElement<=9))
+            {
+                printf("Enter a valid option!\n====================\n");
+                goto categ5;
+            }
             addElements(choices, burger, nbElement, nbCommande);
             addPrices(prices,burgerP, nbElement, nbCommande);
             break;
         case 6:
+categ6:
             showTraditionalDishes(traditional);
             scanf("%d", &nbElement);
+            if ( !(1<=nbElement && nbElement<=9))
+            {
+                printf("Enter a valid option!\n====================\n");
+                goto categ6;
+            }
             addElements(choices, traditional, nbElement, nbCommande);
             addPrices(prices,traditionalP, nbElement, nbCommande);
             break;
         default:
-            printf("Enter a valid option\n"); //si le client a saisi un nombre qui n'est pas dans le menu principal retourner ce message
+            printf("Enter a valid option\n==========================\n"); /*si le client a saisi un nombre qui n'est pas dans le menu principal
+                                                ce message s'affichera et affiche le menu à nouveua*/
             goto menu;
         }
 ok:
         printf("======================= You asked for:\n");
-        yourChoices(choices);
+        yourChoices(choices, nbCommande);
         printf("======================= Is this OK! ===========================\n");
         printf("O.OK\t\tB.Back\t\tC.Cancel\n");
         scanf(" %c", &OK);
@@ -115,6 +164,35 @@ ok:
             break;
         case 'B':
             system("clear");
+            switch(nbCategorie)
+            {
+            case 1:
+                goto categ1;
+                break;
+            case 2:
+                goto categ2;
+                break;
+            case 3:
+                switch(nbSubCateg)
+                {
+                case 1:
+                    goto categ31;
+                    break;
+                case 2:
+                    goto categ32;
+                    break;
+                }
+                break;
+            case 4:
+                goto categ4;
+                break;
+            case 5:
+                goto categ5;
+                break;
+            case 6:
+                goto categ6;
+                break;
+            }
             goto ok;
             break;
         case 'C':

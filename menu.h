@@ -4,6 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+/* ce fichier contient generalement le menu du restau à savoir les categories, les sous-categories, les elements et le prix.
+ansi chaque categorie est illustrée par une structure contient le nom de chaque element de cette categorie et son prix.
+ce fichier contient aussi un tableau de prix des elements de chaque categorie en respectant l'ordre des elements*/
+
 typedef struct Juices
 {
     char name[50];

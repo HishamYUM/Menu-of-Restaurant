@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 
-void yourChoices(char **choices);// afficher l'element choisi
+void yourChoices(char **choices, int nbCommande);// afficher l'element choisi
 void showCategories(char **categ);
 void showSubCategories(char **sub_categ); // afficher les sous categories de la categorie Drinks (juices, others)
 void showDesserts(char **d);

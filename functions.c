@@ -4,60 +4,66 @@
 
 #include "functions.h"
 
+/* afficher toutes les categories de menu */
 void showCategories(char **categ)
 {
 
     for (int k = 1, i=0; i<6; ++i, ++k)
     {
-        printf("%d.%s\t\t", i+1, categ[i]);
+        printf("%d.%-10s\t\t", i+1, categ[i]);
         if (k%3==0) printf("\n\n\n");
     }
+
 }
 
 // *********************************************************************
+/* afficher les sous categories de la categorie drinks*/
 void showSubCategories(char **sub_categ)
 {
 
     printf("Juices or something else?\n");
     for (int l = 1, k=0; k<2; ++l, k++)
     {
-        printf("%d.%s\t\t", k+1, sub_categ[k]);
+        printf("%d.%-10s\t", k+1, sub_categ[k]);
         if (l%3==0) printf("\n\n\n");
     }
-    printf("\n ============================================= \n");
+    printf("\n============================================= \n");
 }
 
 // *********************************************************************
+/*afficher les elements de la categorie desserts*/
 void showDesserts(char **d)
 {
 
     for(int k = 1, j=0; j<12; ++j, ++k)
     {
-        printf("%d.%s\t\t", j+1, d[j]);
+        printf("%d.%-10s\t\t", j+1, d[j]);
         if (k%3==0) printf("\n\n\n");
     }
-    printf("\n ========================================================= \n");
+    printf("\n========================================================= \n");
     printf("Enter number of element:\n");
 }
 
 // *********************************************************************
+/*afficher les elements de la categorie juices*/
 void showJuices(char **j)
 {
     for(int k = 1, i=0; i<12; ++i, ++k)
     {
-        printf("%d.%s\t\t", i+1, j[i]);
+        printf("%d.%-10s\t", i+1, j[i]);
         if (k%3==0) printf("\n\n\n");
     }
-    printf("\n ========================================================= \n");
+    printf("\n========================================================= \n");
     printf("Enter number of element:\n");
 }
 
 // *********************************************************************
+/*afficher les elements de la categorie coeffe*/
 void showCoeffes(char **c)
 {
     for(int k = 1,  j=0; j<12; ++j, ++k)
     {
-        printf("%d.%s\t\t", j+1, c[j]);
+        printf("%d.%-10s\t\t", j+1, c[j]);
         if (k%3==0) printf("\n\n\n");
     }
     printf("\n ================================================ \n");
@@ -65,66 +71,71 @@ void showCoeffes(char **c)
 }
 
 // *********************************************************************
+/*afficher les elements de la categorie tea*/
 void showTeas(char **t)
 {
     for(int k = 1, j=0; j<8; ++j, ++k)
     {
-        printf("%d.%s\t\t", j+1, t[j]);
+        printf("%d.%-10s\t", j+1, t[j]);
         if (k%3==0) printf("\n\n\n");
     }
-    printf("\n ================================================ \n");
+    printf("\n================================================ \n");
     printf("Enter number of element:\n");
 }
 
 // *********************************************************************
+/*afficher les elements de la categorie traditional*/
 void showTraditionalDishes(char **td)
 {
 
     for(int k = 1, j=0; j<9; ++j, ++k)
     {
-        printf("%d.%s\t", j+1, td[j]);
+        printf("%d.%-10s\t", j+1, td[j]);
         if (k%3==0) printf("\n\n\n");
     }
-    printf("\n =============================================== \n");
+    printf("\n=============================================== \n");
     printf("Enter number of element:\n");
 }
 
 // *********************************************************************
+/*afficher les elements de la categorie burger*/
 void showBurgers(char **bu)
 {
 
     for(int k = 1, j=0; j<9; ++j, ++k)
     {
-        printf("%d.%s\t\t", j+1, bu[j]);
+        printf("%d.%-13s\t\t", j+1, bu[j]);
         if (k%3==0) printf("\n\n\n");
     }
-    printf("\n ================================================ \n");
+    printf("\n================================================ \n");
     printf("Enter number of element:\n");
 }
 
 // *********************************************************************
+/*afficher les elements de la categorie other*/
 void showOthers(char **o)
 {
     for(int k = 1, j=0; j<5; ++j, ++k)
     {
-        printf("%d.%s\t\t", j+1, o[j]);
+        printf("%d.%-10s\t", j+1, o[j]);
         if (k%3==0) printf("\n\n\n");
     }
-    printf("\n ======================================= \n");
+    printf("\n======================================= \n");
     printf("Enter number of element:\n");
 }
 
 // *********************************************************************
-void yourChoices(char **choices)
+void yourChoices(char **choices, int nbCommande) /* à chaque commande le programme affichera l'element choisi par le client
+						  pour une verfication*/
 {
-    for(int i = 0; i<1; ++i)
-    {
-        printf("%s\t\t", choices[i]);
-    }
+
+    printf("%s\t\t", choices[nbCommande-1]);
+
     printf("\n");
 }
 
 // *********************************************************************
+/* l'elemnt choisi par le client à chaque commande sera ajouté au tableau de choix pour le conservé*/
 void addElements(char **choices, char **categ, int nbElement, int nbCommande)
 {
     choices[nbCommande-1] = categ[nbElement-1];
@@ -132,7 +143,8 @@ void addElements(char **choices, char **categ, int nbElement, int nbCommande)
 }
 
 // *********************************************************************
-
+/* cette fontion affiche le prix total à payé par le client
+et la date et l'heure de la commande et d'autres informations sous la forme d'une facture*/
 void facture(char **choices, double prices[], int nbCommande)
 {
     system("clear");
@@ -145,7 +157,7 @@ void facture(char **choices, double prices[], int nbCommande)
     printf("---------------------------------------------------------\n");
     for(int i = 0; i<nbCommande; ++i)
     {
-        printf("%d. %s\t\t %g  EUR\n", i+1, choices[i], prices[i]);//%g pour supprimer les zeros apres la virgule
+        printf("%d. %-30s\t %g  EUR\n", i+1, choices[i], prices[i]);//%g pour supprimer les zeros apres la virgule
     }
 
 
@@ -155,12 +167,14 @@ void facture(char **choices, double prices[], int nbCommande)
         TTC += prices[i];
     }
     printf("---------------------------------------------------------\n");
-    printf("TOTAL TTC %g EUR\n\n\n\n", TTC);
-    printf("*************** Thanks for visiting us! *************** \n\t\t*******************");
+    printf("TOTAL TTC %g EUR\n\n", TTC);
+    printf("\t\t\t WIFI password: someWOORD123\n\n\n");
+    printf("*************** Thanks for visiting us! *************** \n\t\t  *******************");
 }
 
 // *********************************************************************
-
+/* le prix de chaque element choisi sera ajouté au tableau des prix pour l'utiliser
+dans l'affichage de la facture et le calcul de prix total*/
 void addPrices(double prices[], double categP[], int nbElement, int nbCommande)
 {
 
@@ -170,7 +184,9 @@ void addPrices(double prices[], double categP[], int nbElement, int nbCommande)
 }
 
 // *********************************************************************
-
+/* le tableau de choix est initialisé à un seul element, mais à chaque 
+fois que le client fait une autre commande, ce tableau doit être élargir pour 
+contient d'autre element*/
 void resizeChoices(char **choices, int nbCommande)
 {
     choices = malloc(1 * sizeof(*choices));
@@ -186,6 +202,9 @@ void resizeChoices(char **choices, int nbCommande)
     }
 }
 
+// *********************************************************************
+
+/* la meme chose que tableau de choix */
 void resizePrices(double prices[], int nbCommande)
 {
 
@@ -200,6 +219,5 @@ void resizePrices(double prices[], int nbCommande)
 
         free(prices);
     }
-
-
 }
+
