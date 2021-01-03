@@ -4,40 +4,47 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Juices {
-	char name[50];
-	double price;
-	}Juices;
+typedef struct Juices
+{
+    char name[50];
+    double price;
+} Juices;
 
-typedef struct Others{
-	char name[50];
-	double price;
-	}Others;
+typedef struct Others
+{
+    char name[50];
+    double price;
+} Others;
 
-typedef struct Traditionals{
-	char name[50];
-	double price;
-	}Traditionals;
+typedef struct Traditionals
+{
+    char name[50];
+    double price;
+} Traditionals;
 
-typedef struct Coeffes{
-	char name[50];
-	double price;
-	}Coeffes;
+typedef struct Coeffes
+{
+    char name[50];
+    double price;
+} Coeffes;
 
-typedef struct Teas{
-	char name[50];
-	double price;
-	}Teas;
+typedef struct Teas
+{
+    char name[50];
+    double price;
+} Teas;
 
-typedef struct Desserts{
-	char name[50];
-	double price;
-	}Desserts;
+typedef struct Desserts
+{
+    char name[50];
+    double price;
+} Desserts;
 
-typedef struct Burgers{
-	char name[50];
-	double price;
-	}Burgers;
+typedef struct Burgers
+{
+    char name[50];
+    double price;
+} Burgers;
 
 
 
@@ -78,7 +85,6 @@ Coeffes c9  = {"Macchiato ou cafe noisette", 2.0};
 Coeffes c10 = {"Venice coffee", 3.9};
 Coeffes c11 = {"Frensh press coffee", 2.5};
 Coeffes c12 = {"Affogato", 2.4};
-
 
 Teas t1 = {"Matcha", 2.5};
 Teas t2 = {"Citrus", 2.10};
@@ -123,7 +129,7 @@ Others o5 = {"napkins", 3.5};
 
 
 
-char *categories_[7] = {"Coeffe", "Tea", "Drinks", "Burgers", "Desserts", "Traditional Dishes"};
+char *categories_[7] = {"Coeffe", "Tea", "Drinks", "Desserts", "Burgers", "Traditional Dishes"};
 char *drinks_[2] = {"Juices", "Other"};
 
 
@@ -144,3 +150,11 @@ double otherP[5] = {1.2, 1, 4.1, 6.2, 3.5};
 double burgerP[9] = {15.2, 18.1, 10.0, 12.0, 10.0, 20.0, 10.17, 17.6, 19.33};
 
 #endif // MENU_H_INCLUDED
+
+
+
+
+
+
+
+
